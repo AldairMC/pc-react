@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import InfoCitas from './InfoCitas';
 
 export default class Citas extends Component {
 
@@ -14,7 +15,17 @@ export default class Citas extends Component {
             <div className="card mt-5">
                 <div className="card-body">
                     <h2 className="card-title text-center">{mensaje}</h2>
+                    <div className="lista-citas">
+                        {Object.keys(this.props.citas).map(i => (
+                            <InfoCitas 
+                                key={i}
+                                citas={this.props.citas[i]} 
+                            />
+                        ))}
+                    </div>
                 </div>
+
+
             </div>
         );
     }
