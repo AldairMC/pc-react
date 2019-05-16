@@ -19,7 +19,8 @@ export default class Citas extends Component {
                         {Object.keys(this.props.citas).map(i => (
                             <InfoCitas 
                                 key={i}
-                                citas={this.props.citas[i]} 
+                                citas={this.props.citas[i]}
+                                deleteCite={this.props.deleteCite} 
                             />
                         ))}
                     </div>

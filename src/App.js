@@ -21,6 +21,18 @@ export default class App extends Component {
         })  
     }
 
+    deleteCite = id => {
+        //Obteniendo copia del state
+        const citasActuales = [...this.state.cite]
+        
+        //Eliminando la cita con filter
+        const cite = citasActuales.filter(i => i.id !== id)
+
+        //Actualizando el state
+        this.setState({
+            cite
+        })
+    }
     
 
     render() {
@@ -39,6 +51,7 @@ export default class App extends Component {
                     <div className="col-md-6">
                         <Citas 
                             citas={this.state.cite}
+                            deleteCite={this.deleteCite}
                         />
                     </div>
                 </div>
