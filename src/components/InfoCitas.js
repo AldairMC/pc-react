@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 
 export default class InfoCitas extends Component { 
 
@@ -16,8 +17,7 @@ export default class InfoCitas extends Component {
         return (
             <div className="media mb-3">
                 <div className="media-body">
-                    <h2 className="mt-0"></h2>
-                    <h3 className="card-text">{namePet}</h3>
+                    <h3 className="mt-0">{namePet}</h3>
                     <p className="card-text"><span>Nombre del dueño: </span>{nameOwner}</p>
                     <p className="card-text"><span>Fecha: </span>{timeCite}</p>
                     <p className="card-text"><span>Hora: </span>{hoursCite}</p>
@@ -29,4 +29,18 @@ export default class InfoCitas extends Component {
             </div>
         );
     }
+}
+
+
+InfoCitas.propTypes = {
+    citas: PropTypes.shape({
+        namePet: PropTypes.string.isRequired, 
+        nameOwner: PropTypes.string.isRequired,  
+        timeCite: PropTypes.string.isRequired,
+        hoursCite: PropTypes.string.isRequired, 
+        symptomPet: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired
+    }),
+    deleteCite: PropTypes.func.isRequired
+
 }

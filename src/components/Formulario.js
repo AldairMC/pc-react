@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import uuid from 'uuid';
+import PropTypes from 'prop-types';
 
 export default class Formulario extends Component {
 
@@ -59,7 +60,7 @@ export default class Formulario extends Component {
         return (
             <div className="card mt-5">
                 <div className="card-body">
-                    <h2 class="card-title text-center mb-5">{this.props.titulo}</h2>
+                    <h2 className="card-title text-center mb-5">{this.props.titulo}</h2>
                     <form onSubmit={this.createNewCite}>
                         <div className="form-group row">
                             <label className="col-sm-4 col-lg-2 col-form-label">Nombre Mascota</label>
@@ -106,4 +107,9 @@ export default class Formulario extends Component {
             
         );
     }
+}
+
+Formulario.propTypes = {
+    titulo: PropTypes.string.isRequired,
+    createCite: PropTypes.func.isRequired
 }

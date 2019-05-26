@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import InfoCitas from './InfoCitas';
+import PropTypes from 'prop-types';
 
 export default class Citas extends Component {
 
@@ -31,3 +32,9 @@ export default class Citas extends Component {
         );
     }
 }
+
+Citas.propTypes = {
+    citas: PropTypes.array.isRequired,
+    deleteCite: PropTypes.func.isRequired
+}
+
