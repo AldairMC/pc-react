@@ -10,6 +10,22 @@ export default class App extends Component {
         cite: []
     }
 
+    componentDidMount(){
+        const citeLS = localStorage.getItem('citas')
+        if(citeLS){
+            this.setState({
+                cite: JSON.parse(citeLS)
+            })
+        }
+    }
+
+    //Metodo de Ciclo de vida - se ejecuta cuando algo cambia en el componente
+    componentDidUpdate() {
+        localStorage.setItem(
+            //JSON.stringify - de array|ojects a string
+            'citas', JSON.stringify(this.state.cite)
+        )
+    }
 
     createCite = (datos) => {
         //Obteniedo una copia del state y agregando la nueva cita 
